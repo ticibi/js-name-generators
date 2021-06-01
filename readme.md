@@ -1,8 +1,8 @@
-Basic name generator
+Basic name generators
 
-currently has two generators:
+currently contains two basic generators:
 
-    Tech Company Name Generator
-    Fantasy Name Generator (female)
+Tech Company Name Generator
+Fantasy Name Generator (female)
 
-https://ticibi.github.io/name-generators.github.io/
+https://ticibi.github.io/name-generators/

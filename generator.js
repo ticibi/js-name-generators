@@ -5,16 +5,23 @@ window.onload = function onLoad() {
 const contentContainer = document.getElementById("content");
 const contentTitle = document.getElementById("title");
 
+const tab1 = document.getElementById("tech");
+const tab2 = document.getElementById("fant");
+
 var activeId = "fant";
 
-function toggleTab(value) {
-    if (value == "tech") {
+function toggleTab(button) {
+    if (button.id == "tech") {
         contentTitle.innerText = "Tech Company Name Generator";
         activeId = "tech";
+        tab1.classList.add("active");
+        tab2.classList.remove("active")
     }
-    if (value == "fant") {
+    if (button.id == "fant") {
         contentTitle.innerText = "Fantasy Name Generator (f)";
         activeId = "fant";
+        tab1.classList.remove("active");
+        tab2.classList.add("active")
     }
     generate();
 }
