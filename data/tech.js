@@ -28,10 +28,14 @@ prefixes = [
     'cosmo', 'cosmi', 'xeno', 'imperi', 'scio',
     'mecha', 'sky', 'tru', 'heli', 'fracti',
     'fracto', 'nova', 'celesti', 'divi',
-    'centro', 'centri', 'spectro', 'econo'
+    'centro', 'centri', 'spectro', 'econo', 'inno',
+    'cloud', 'giga', 'mega', 'vanta', 'inter',
+    'intra', 'intro', 'nexo', 'chemi', 'fabri',
+    'pixo', 'pixa', 'opti', 'up', 'atlas',
+    'meta', 'co', ''
 ]
       
-middlefixes = ['', ' ']
+middlefixes = ['', '', ' ']
       
 suffixes = [
     'tech', 'max', 'dyne', 'soft', 'ware', 
@@ -45,5 +49,8 @@ suffixes = [
     'ix', 'works', 'dec', 'chem', 'netics', 
     'cybernetics', 'co', 'link', 'gen', 'dev',
     'com', 'comm', 'tics', '-x', 'dynamics',
-    'etics', 'ton', 'thon', 'theon', 'star'  
+    'etics', 'ton', 'thon', 'theon', 'star',
+    'genesis', 'pro', 'frag', 'netic', 'netics',
+    'fine', 'go', 'light', 'lite', 'io', 
+    'byte', 'bit', 'lab', 'labs', ''
 ]
