@@ -311,13 +311,11 @@ female_prefixes = [
     'mall',
     'mann',
     'meg',
-    'mug',
     'mag',
     'meler',
     'melaer',
     'myl',
     'myf',
-    'muf',
     'faw',
     'fawn',
     'doe',
@@ -342,6 +340,16 @@ female_prefixes = [
     'teg',
     'tan',
     'ton',
+    'madth',
+    'madh',
+    'des',
+    'dess',
+    'ohr',
+    'thyl',
+    'this',
+    'thes',
+    'tes',
+    'tess',
     ''
 ]
 
@@ -418,6 +426,10 @@ female_suffixes = [
     'oth',
     'yth',
     "ette",
+    'etta',
+    'itta',
+    'ytta',
+    'yss',
     "iss",
     'ess',
     'ass',
@@ -444,5 +456,6 @@ female_suffixes = [
     'mund',
     'monde',
     'munde',
+    'u',
     ''
 ]

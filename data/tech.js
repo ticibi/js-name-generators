@@ -1,4 +1,4 @@
-prefixes = [
+tech_prefixes = [
     'holo', 'techni', 'bio','dyna', 'net', 
     'virtu', 'hyper', 'super', 'mili', 'intelli', 
     'logi', 'neura', 'neuro', 'meta', 'nano', 
@@ -34,10 +34,10 @@ prefixes = [
     'pixo', 'pixa', 'opti', 'up', 'atlas',
     'meta', 'co', ''
 ]
+
+tech_middlefixes = ['', '', ' ']
       
-middlefixes = ['', '', ' ']
-      
-suffixes = [
+tech_suffixes = [
     'tech', 'max', 'dyne', 'soft', 'ware', 
     'net', 'core', 'labs', 'sync', 'nium', 
     'ium', 'sense', 'tica', 'nica', 'lytics', 
