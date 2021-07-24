@@ -1,0 +1,53 @@
+FantasyTownNames = {
+    "prefix": {
+        "wolf": 1,
+        "hart": 1,
+        "ahrn": 1,
+        "shep": 1,
+        "port": 1,
+        "aren": 1,
+        "ara": 1,
+        "gold": 1,
+        "silver": 1,
+        "hamp": 1,
+        "ohrm": 1,
+        "watts": 1,
+        "fala": 1,
+        "cath": 1,
+        "nor": 1,
+        "offel": 1,
+        "myre": 1
+    },
+    "middlefix": {
+        "": 5
+    },
+    "suffix": {
+        "hold": 1,
+        "berg": 1,
+        "town": 1,
+        "ton": 1,
+        "fall": 1, 
+        "haven": 1,
+        "dell": 1,
+        "dale": 1,
+        "bury": 1,
+        "ford": 1,
+        "fort": 1,
+        "gaard": 1,
+        "guard": 1,
+        "shire": 1,
+        "den": 1,
+        "field": 1,
+        "glenn": 1,
+        "pool": 1,
+        "hem": 1,
+        "port": 1,
+        "stead": 1,
+        "by": 1,
+        "erby": 1,
+        "dor": 1,
+        "amboy": 1,
+        "atoll": 1,
+        "myre": 1
+    }
+}

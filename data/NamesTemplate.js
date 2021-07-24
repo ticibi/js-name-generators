@@ -1,0 +1,11 @@
+NAME = {
+    "prefix": {
+
+    },
+    "middlefix": {
+
+    },
+    "suffix": {
+
+    }
+}
