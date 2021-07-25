@@ -5,6 +5,8 @@ const GENERATORS = [
     "Town Names",
 ]
 
+var savedNames = []
+
 window.onload = function() {
     loadScripts();
     addButtons();
@@ -44,6 +46,7 @@ function addButtons() {
 }
 
 function toggleTab(button) {
+    remove();
     genTitle.innerText = button.innerText;
     activeTab = button.innerText;
     generate();
@@ -114,8 +117,35 @@ function generate() {
         var name = generateName(activeTab);
         div.innerHTML = name;
         div.id = "generatedName";
-        div.className = "fs-4 text-light";
-        div.style = "text-transform: capitalize";
+        div.className = "fs-4 text-light btn";
+        div.style = "text-transform: capitalize; border: thin; background: none; padding: 0px;";
+        div.addEventListener('click', function() {
+            addSaved(this);
+        });
+        namesList.append(div);
+    }
+}
+
+function addSaved(button) {
+    if(!savedNames.includes(button.innerText)) {
+        savedNames.push(button.innerText);
+        button.innerText = button.innerText + "⭐";
+    } else if(savedNames.includes(button.innerText)) {
+        savedNames.remove(button.innerText);
+    }
+    console.log(savedNames);
+}
+
+function displaySaved() {
+    remove();
+    activeTab = "Saved Names";
+    genTitle.innerText = "Saved Names";
+    for (i = 0; i < savedNames.length; i++) {
+        let div = document.createElement("div");
+        div.innerHTML = savedNames[i];
+        div.id = "generatedName";
+        div.className = "fs-4 text-light btn";
+        div.style = "text-transform: capitalize; border: thin; background: none; padding: 0px;";
         namesList.append(div);
     }
 }
