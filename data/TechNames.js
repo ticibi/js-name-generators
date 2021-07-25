@@ -150,11 +150,13 @@ TechNames = {
         "maxi": 1,
         "eterni": 1,
         "cryo": 1,
-        "quanti": 1
+        "quanti": 1,
+        "sky": 1
     },
     "middlefix": {
+        "": 5,
         " ": 5,
-        "-": 1
+        "-": 2
     },
     "suffix": {
         "genesis": 1,
@@ -226,6 +228,8 @@ TechNames = {
         "technologies": 1,
         "sense": 1,
         "theon": 1,
-        "nium": 1
+        "nium": 1,
+        "guard": 1,
+        "watch": 1
     }
 }

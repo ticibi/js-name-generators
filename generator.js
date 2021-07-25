@@ -2,7 +2,7 @@ const GENERATORS = [
     "Tech Names",
     "Fantasy Names F",
     "Fantasy Names M",
-    "Fantasy Town Names",
+    "Town Names",
 ]
 
 window.onload = function() {
@@ -14,7 +14,7 @@ window.onload = function() {
 var genTabs = document.getElementById("genTabs");
 var namesList = document.getElementById("namesList");
 var genTitle = document.getElementById("genTitle");
-var activeTab = "Fantasy Names F";
+var activeTab = GENERATORS[0];
 
 function loadScripts() {
     for(var i=0; i < GENERATORS.length; i++) {
@@ -33,7 +33,7 @@ function addButtons() {
         li.className = 'nav-item';
         var btn = document.createElement('button');
         btn.id = GENERATORS[i] + '-btn';
-        btn.className = 'nav-link';
+        btn.className = 'nav-link text-center';
         btn.innerText = GENERATORS[i];
         btn.addEventListener('click', function() {
             toggleTab(this);
@@ -93,8 +93,8 @@ function generateName(tabName) {
     const DATATABLE = {
         "Tech Names": TechNames,
         "Fantasy Names F": FantasyNamesF,
-        "Fantasy Names M": "",
-        "Fantasy Town Names": FantasyTownNames
+        "Fantasy Names M": FantasyNamesM,
+        "Town Names": TownNames
     };
     var data = DATATABLE[tabName];
     var prefixes = [];

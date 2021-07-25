@@ -353,17 +353,23 @@ FantasyNamesF = {
         "fawn": 1,
         "ria": 1,
         "ett": 1,
-        "mart": 1
+        "mart": 1,
+        "golde": 1,
+        "thur": 1,
+        "thor": 1,
+        "thurs": 1,
+        "thors": 1,
+        "garm": 1,
+        "narn": 1,
+        "crom": 1,
+        "acre": 1,
+        "strong": 1,
+        "iron": 1,
+        "tyward": 1,
+        "tyren": 1
     },
     "middlefix": {
-        "": 5,
-        "a": 1,
-        "e": 1,
-        "i": 1,
-        "o": 1,
-        "u": 1,
-        "y": 1,
-        "j": 1
+        "": 5
     },
     "suffix": {
         "rid": 1,
@@ -453,6 +459,7 @@ FantasyNamesF = {
         "monde": 1,
         "munde": 1,
         "u": 1,
-        "yu":1
+        "yu":1,
+        "gadin": 1
     }
 }
