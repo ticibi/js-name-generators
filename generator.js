@@ -16,6 +16,7 @@ window.onload = function() {
 var genTabs = document.getElementById("genTabs");
 var namesList = document.getElementById("namesList");
 var genTitle = document.getElementById("genTitle");
+var genBtn = document.getElementById("genBtn");
 var activeTab = GENERATORS[0];
 
 function loadScripts() {
@@ -46,7 +47,7 @@ function addButtons() {
 }
 
 function toggleTab(button) {
-    remove();
+    genBtn.innerText = "Generate";
     genTitle.innerText = button.innerText;
     activeTab = button.innerText;
     generate();
@@ -129,7 +130,6 @@ function generate() {
 function addSaved(button) {
     if(!savedNames.includes(button.innerText)) {
         savedNames.push(button.innerText);
-        button.innerText = button.innerText + "⭐";
     } else if(savedNames.includes(button.innerText)) {
         savedNames.remove(button.innerText);
     }
@@ -138,24 +138,25 @@ function addSaved(button) {
 
 function displaySaved() {
     remove();
+    genBtn.innerText = "Clear Saved Names";
     activeTab = "Saved Names";
     genTitle.innerText = "Saved Names";
     for (i = 0; i < savedNames.length; i++) {
         let div = document.createElement("div");
         div.innerHTML = savedNames[i];
         div.id = "generatedName";
-        div.className = "fs-4 text-light btn";
-        div.style = "text-transform: capitalize; border: thin; background: none; padding: 0px;";
+        div.className = "fs-4 btn";
+        div.style = "text-transform: capitalize; color: gold; border: thin; background: none; padding: 0px;";
         namesList.append(div);
     }
+    console.log(namesList.childNodes.length);
 }
 
 function remove() {
-    for (i = 0; i < 7; i++) {
-        let div = document.getElementById("generatedName");
-        if (div == null) {
-            return
-        }       
-        namesList.removeChild(div);
+    while (namesList.hasChildNodes()) {
+        namesList.removeChild(namesList.lastChild);
+    }
+    if(activeTab == "Saved Names") {
+        savedNames = [];
     }
 }
