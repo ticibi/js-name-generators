@@ -366,7 +366,8 @@ FantasyNamesF = {
         "strong": 1,
         "iron": 1,
         "tyward": 1,
-        "tyren": 1
+        "tyren": 1,
+        "hjoll": 1
     },
     "middlefix": {
         "": 5
