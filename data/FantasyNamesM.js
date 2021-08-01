@@ -44,7 +44,9 @@ FantasyNamesM = {
         "serge": 1,
         "del": 1,
         "relon": 1,
-        "josh": 1
+        "josh": 1,
+        "thor": 1,
+        "thur": 1
     },
     "middlefix": {
         "": 5
@@ -68,7 +70,7 @@ FantasyNamesM = {
         "sil": 1,
         "ghor": 1,
         "rich": 1,
-        "rikke": 1,
+        "rik": 1,
         "ric": 1,
         "vard": 1,
         "skjr": 1,
@@ -78,6 +80,11 @@ FantasyNamesM = {
         "ius": 1,
         "ian": 1,
         "ec": 1,
-        "ek": 1
+        "ek": 1,
+        "o": 1,
+        "io": 1,
+        "rid": 1,
+        "gadin": 1,
+        "bald": 1
     }
 }

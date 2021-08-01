@@ -3,12 +3,14 @@ const GENERATORS = [
     "Fantasy Names F",
     "Fantasy Names M",
     "Town Names",
+    "Random Names",
 ]
 
 var savedNames = []
 
 window.onload = function() {
     loadScripts();
+    randomName();
     addButtons();
     generate();
 };
@@ -115,7 +117,11 @@ function generate() {
     remove();
     for (i = 0; i < 7; i++) {
         let div = document.createElement("div");
-        var name = generateName(activeTab);
+        if (activeTab == "Random Names") {
+            var name = randomName();
+        } else {
+            var name = generateName(activeTab);
+        }
         div.innerHTML = name;
         div.id = "generatedName";
         div.className = "fs-4 text-light btn";
@@ -159,4 +165,11 @@ function remove() {
     if(activeTab == "Saved Names") {
         savedNames = [];
     }
+}
+
+function randomName() {
+    var vowels = "aeiouy";
+    var consonants = 'bcdfghjklmnpqrstvwxyz';
+    var name = choice(consonants) + choice(vowels) + choice(consonants) + choice(consonants) + choice(vowels) + choice(consonants);
+    return name;
 }
