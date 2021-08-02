@@ -12,32 +12,35 @@ window.onload = function() {
     loadScripts();
     randomName();
     addButtons();
-    generate();
 };
+
+document.onload = function() {
+    generate();
+}
 
 var genTabs = document.getElementById("genTabs");
 var namesList = document.getElementById("namesList");
 var genTitle = document.getElementById("genTitle");
 var genBtn = document.getElementById("genBtn");
 var activeTab = GENERATORS[0];
+genTitle.innerText = 'Select a Generator';
 
 function loadScripts() {
-    for(var i=0; i < GENERATORS.length; i++) {
+    for(var i=0; i < GENERATORS.length - 1; i++) {
         var scriptTag = document.createElement("script");
         var filename = GENERATORS[i].split(" ").join("");
         scriptTag.setAttribute("src", "data/" + filename + ".js")
         document.head.appendChild(scriptTag);
-        console.log(scriptTag);
     }
 }
 
 function addButtons() {
     for(var i=0; i < GENERATORS.length; i++){
-        var li = document.createElement('li');
+        var li = document.createElement('div');
         li.id = GENERATORS[i];
         li.className = 'nav-item';
         var btn = document.createElement('button');
-        btn.id = GENERATORS[i] + '-btn';
+        btn.id = 'genTitleBtn';
         btn.className = 'nav-link text-center';
         btn.innerText = GENERATORS[i];
         btn.addEventListener('click', function() {
@@ -53,6 +56,12 @@ function toggleTab(button) {
     genTitle.innerText = button.innerText;
     activeTab = button.innerText;
     generate();
+}
+
+function randomRange(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function choice(array) {
@@ -124,7 +133,7 @@ function generate() {
         }
         div.innerHTML = name;
         div.id = "generatedName";
-        div.className = "fs-4 text-light btn";
+        div.className = "fs-4 btn";
         div.style = "text-transform: capitalize; border: thin; background: none; padding: 0px;";
         div.addEventListener('click', function() {
             addSaved(this);
@@ -170,6 +179,26 @@ function remove() {
 function randomName() {
     var vowels = "aeiouy";
     var consonants = 'bcdfghjklmnpqrstvwxyz';
-    var name = choice(consonants) + choice(vowels) + choice(consonants) + choice(consonants) + choice(vowels) + choice(consonants);
+    var roll = randomRange(0, 4);
+    var name = null;
+    switch(roll) {
+        case 0:
+            name = choice(consonants) + choice(consonants) + choice(vowels) + choice(vowels) + choice(consonants);
+            break;
+        case 1:
+            name = choice(consonants) + choice(vowels) + choice(consonants) + choice(consonants) + choice(vowels) + choice(consonants);
+            break;
+        case 2:
+            name = choice(vowels) + choice(consonants) + choice(vowels) + choice(consonants) + choice(vowels) + choice(consonants);
+            break;
+        case 3:
+            name = choice(consonants) + choice(vowels) + choice(consonants) + choice(vowels) + choice(consonants) + choice(vowels);
+            break;
+        case 4:
+            name = choice(vowels) + choice(consonants) + choice(consonants) + choice(vowels);
+            break;
+        default:
+            name = choice(vowels) + choice(consonants) + choice(consonants);
+    }
     return name;
 }

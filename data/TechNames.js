@@ -154,9 +154,8 @@ TechNames = {
         "sky": 1
     },
     "middlefix": {
-        "": 5,
-        " ": 5,
-        "-": 2
+        "": 1,
+        " ": 1
     },
     "suffix": {
         "genesis": 1,
