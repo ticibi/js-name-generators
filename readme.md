@@ -1,10 +1,12 @@
-# Basic name generators
+# Basic Name Generators
 
-currently contains two basic generators:  
+currently contains 5 simple name generators:  
 
--Tech Company Name Generator  
--Fantasy Name Generator (female)  
--Fantasy Name Generator (male)  
--Town Name Generator  
+-Tech Company Name   
+-Fantasy Name F    
+-Fantasy Name F  
+-Town Name  
+-Random Name  
 
+try it at:  
 https://ticibi.github.io/name-generators/
