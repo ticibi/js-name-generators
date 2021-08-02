@@ -1,0 +1,22 @@
+#genTitle {
+    color: slategray;
+}
+#genTitleBtn {
+    color: #1358c0;
+}
+    #genTitleBtn:hover {
+        color: #003688;
+    }
+    #genTitleBtn:focus {
+        color: #0d6efd;
+    }
+#generatedName {
+    color: whitesmoke;
+}
+    #generatedName:hover {
+        color: #0d6efd;
+    }
+    #generatedName:focus {
+        color: red;
+    }
+    
