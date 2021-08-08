@@ -1,13 +1,3 @@
-const GENERATORS = [
-    "Tech Names",
-    "Fantasy Names F",
-    "Fantasy Names M",
-    "Town Names",
-    "Random Names",
-]
-
-var savedNames = []
-
 window.onload = function() {
     loadScripts();
     randomName();
@@ -18,6 +8,7 @@ document.onload = function() {
     generate();
 }
 
+var savedNames = []
 var genTabs = document.getElementById("genTabs");
 var namesList = document.getElementById("namesList");
 var genTitle = document.getElementById("genTitle");
@@ -109,7 +100,8 @@ function generateName(tabName) {
         "Tech Names": TechNames,
         "Fantasy Names F": FantasyNamesF,
         "Fantasy Names M": FantasyNamesM,
-        "Town Names": TownNames
+        "Town Names": TownNames,
+        "Orc Names": OrcNames
     };
     var data = DATATABLE[tabName];
     var prefixes = [];

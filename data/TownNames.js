@@ -114,8 +114,7 @@ TownNames = {
         "mount": 1
     },
     "middlefix": {
-        "": 5,
-        "": 1
+        "": 5
     },
     "suffix": {
         "hold": 1,
