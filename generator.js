@@ -8,6 +8,18 @@ document.onload = function() {
     generate();
 };
 
+const GENS = [
+    "Company Names",
+    "Fantasy Names",
+    "Random Names",
+]
+
+const SUBGENS = [
+    ['Tech', 'Business'],
+    ['Masculine', 'Feminine', 'Town', 'Orc'],
+    ['Random'],
+]
+
 var savedNames = []
 var genTabs = document.getElementById("genTabs");
 var namesList = document.getElementById("namesList");
@@ -119,6 +131,9 @@ function generateName(tabName) {
 }
 
 function generate() {
+    if (activeTab == "Saved Names") {
+        return
+    }
     remove();
     for (i = 0; i < 7; i++) {
         let div = document.createElement("div");
@@ -144,14 +159,13 @@ function addSaved(button) {
     if(!savedNames.includes(button.innerText)) {
         savedNames.push(button.innerText);
     } else if(savedNames.includes(button.innerText)) {
-        savedNames.remove(button.innerText);
+        savedNames.splice(savedNames.indexOf(button.innerText));
     }
-    console.log(savedNames);
 }
 
 function displaySaved() {
     remove();
-    genBtn.innerText = "Clear Saved Names";
+    genBtn.innerText = "Saved Names";
     activeTab = "Saved Names";
     genTitle.innerText = "Saved Names";
     for (i = 0; i < savedNames.length; i++) {
@@ -162,7 +176,6 @@ function displaySaved() {
         div.style = "text-transform: capitalize; color: gold; border: thin; background: none; padding: 0px;";
         namesList.append(div);
     }
-    console.log(namesList.childNodes.length);
 }
 
 function remove() {
@@ -218,8 +231,6 @@ function complexName() {
     for(var z in data.adjectives) adjectives.push(z);
     var prefix = choice(prefixes);
     var middlefix = choice(middlefixes);
-    var connector = choice([' ', ' the '])
-    var connector2 = choice([' ', '-'])
     if (roll() == 1) {
         var middlefix = choice(middlefixes);
         var suffix = choice(suffixes);
@@ -227,6 +238,6 @@ function complexName() {
         var middlefix = choice(adjectives);
         var suffix = choice(middlefixes);
     }
-    var name = prefix + connector + middlefix + connector2 + suffix;
+    var name = prefix + ' ' + middlefix + ' ' + suffix;
     return name;
 }
