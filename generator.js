@@ -231,13 +231,12 @@ function complexName() {
     for(var z in data.adjectives) adjectives.push(z);
     var prefix = choice(prefixes);
     var middlefix = choice(middlefixes);
+    var suffix = choice(suffixes);
     if (roll() == 1) {
-        var middlefix = choice(middlefixes);
-        var suffix = choice(suffixes);
+        var adj = choice(adjectives);
     } else {
-        var middlefix = choice(adjectives);
-        var suffix = choice(middlefixes);
+        var adj = '';
     }
-    var name = prefix + ' ' + middlefix + ' ' + suffix;
+    var name = prefix + ' ' + adj + ' ' + middlefix + ' ' + suffix;
     return name;
 }
