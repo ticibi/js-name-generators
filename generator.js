@@ -6,7 +6,7 @@ window.onload = function() {
 
 document.onload = function() {
     generate();
-}
+};
 
 var savedNames = []
 var genTabs = document.getElementById("genTabs");
@@ -20,7 +20,11 @@ function loadScripts() {
     for(var i=0; i < GENERATORS.length - 1; i++) {
         var scriptTag = document.createElement("script");
         var filename = GENERATORS[i].split(" ").join("");
-        scriptTag.setAttribute("src", "data/" + filename + ".js")
+        try {
+            scriptTag.setAttribute("src", "data/" + filename + ".js");
+        } catch (error) {
+            console.log(error);
+        }
         document.head.appendChild(scriptTag);
     }
 }
@@ -120,6 +124,8 @@ function generate() {
         let div = document.createElement("div");
         if (activeTab == "Random Names") {
             var name = randomName();
+        } else if(activeTab == "Orc Names") {
+            var name = complexName();
         } else {
             var name = generateName(activeTab);
         }
@@ -192,5 +198,35 @@ function randomName() {
         default:
             name = choice(vowels) + choice(consonants) + choice(consonants);
     }
+    return name;
+}
+
+function roll() {
+    return choice([1, 2])
+}
+
+// really bad
+function complexName() {
+    var data = OrcNames;
+    var prefixes = [];
+    var middlefixes = [];
+    var suffixes = [];
+    var adjectives = [];
+    for(var x in data.prefix) prefixes.push(x);
+    for(var y in data.middlefix) middlefixes.push(y);
+    for(var z in data.suffix) suffixes.push(z);
+    for(var z in data.adjectives) adjectives.push(z);
+    var prefix = choice(prefixes);
+    var middlefix = choice(middlefixes);
+    var connector = choice([' ', ' the '])
+    var connector2 = choice([' ', '-'])
+    if (roll() == 1) {
+        var middlefix = choice(middlefixes);
+        var suffix = choice(suffixes);
+    } else {
+        var middlefix = choice(adjectives);
+        var suffix = choice(middlefixes);
+    }
+    var name = prefix + connector + middlefix + connector2 + suffix;
     return name;
 }
