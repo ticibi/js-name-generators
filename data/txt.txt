@@ -1,0 +1,44 @@
+for (var i=0; i < GENS.length; i++) {
+    var li = document.createElement('div');
+    li.id = GENS[i];
+    li.className = 'nav-item';
+    var btn = document.createElement('button');
+    btn.id = 'genTitleBtn';
+    btn.className = 'nav-link text-center dropdown-toggle';
+    btn.innerText = GENS[i];
+    for(var j=0; j < GENSTABLE[GENS[i]].length; j++) {
+        var div = document.createElement("div");
+        div.className = 'dropdown-item';
+        div.innerText = GENSTABLE[GENS[i][j]];
+        btn.appendChild(div);
+    }
+    btn.addEventListener('click', function() {
+        toggleTab(this);
+    });
+    li.appendChild(btn);
+    genTabs.appendChild(li);
+}
+for (var i=0; i < GENS.length; i++) {
+        var div = document.createElement("div");
+        div.className = "dropdown";
+        var button = document.createElement("button");
+        button.className = "btn btn-secondary dropdown-toggle";
+        button.type = "button";
+        button.innerText = GENS[i];
+        div.appendChild(button);
+        var ul = document.createElement("ul");
+        ul.className = "dropdown-menu dropdown-menu-dark";
+
+        for (var j=0; j < SUBGENS[j].length; j++) {
+            var li = document.createElement("li");
+            li.id = "li" + SUBGENS[j];
+            var a = document.createElement("a");
+            a.className = "dropdown-item";
+            a.id = SUBGENS[j];
+            a.innerText = a.id = SUBGENS[j];
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+        div.appendChild(ul);
+        genTabs.appendChild(div);
+    }  
