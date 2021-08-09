@@ -234,10 +234,12 @@ function complexName() {
     if (roll() == 1) {
         var middlefix = choice(middlefixes);
         var suffix = choice(suffixes);
+        var ending = ' ';
     } else {
         var middlefix = choice(adjectives);
         var suffix = choice(middlefixes);
+        var ending = choice(suffixes);
     }
-    var name = prefix + ' ' + middlefix + ' ' + suffix;
+    var name = prefix + ' ' + middlefix + ' ' + suffix + ' ' + ending;
     return name;
 }
