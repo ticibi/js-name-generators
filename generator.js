@@ -21,6 +21,10 @@ const SUBGENS = [
 ]
 
 var savedNames = []
+var charBox = document.getElementById("charBox");
+charBox.style.visibility = "hidden";
+var charBoxInputC = document.getElementById("charBoxInputC");
+var charBoxInputV = document.getElementById("charBoxInputV");
 var genTabs = document.getElementById("genTabs");
 var namesList = document.getElementById("namesList");
 var genTitle = document.getElementById("genTitle");
@@ -130,21 +134,38 @@ function generateName(tabName) {
     return name;
 }
 
+function checkActiveTab(tabName) {
+    switch (tabName) {
+        case "Random Names":
+            var name = randomName();
+            charBox.style.visibility = "visible";
+            return name;
+    
+        case "Orc Names":
+            var name = complexName();
+            charBox.style.visibility = "hidden";
+            return name;
+
+        case "Saved Names":
+            charBox.style.visibility = "hidden";
+            return null;
+
+        default:
+            var name = generateName(activeTab);
+            charBox.style.visibility = "hidden";
+            return name;
+    }
+}
+
 function generate() {
     if (activeTab == "Saved Names") {
         return
     }
     remove();
     for (i = 0; i < 7; i++) {
+        var tabName = checkActiveTab(activeTab);
         let div = document.createElement("div");
-        if (activeTab == "Random Names") {
-            var name = randomName();
-        } else if(activeTab == "Orc Names") {
-            var name = complexName();
-        } else {
-            var name = generateName(activeTab);
-        }
-        div.innerHTML = name;
+        div.innerHTML = tabName;
         div.id = "generatedName";
         div.className = "fs-4 btn";
         div.style = "text-transform: capitalize; border: thin; background: none; padding: 0px;";
@@ -188,34 +209,24 @@ function remove() {
 }
 
 function randomName() {
-    var vowels = "aeiouy";
-    var consonants = 'bcdfghjklmnpqrstvwxyz';
-    var roll = randomRange(0, 4);
-    var name = null;
-    switch(roll) {
-        case 0:
-            name = choice(consonants) + choice(consonants) + choice(vowels) + choice(vowels) + choice(consonants);
-            break;
-        case 1:
-            name = choice(consonants) + choice(vowels) + choice(consonants) + choice(consonants) + choice(vowels) + choice(consonants);
-            break;
-        case 2:
-            name = choice(vowels) + choice(consonants) + choice(vowels) + choice(consonants) + choice(vowels) + choice(consonants);
-            break;
-        case 3:
-            name = choice(consonants) + choice(vowels) + choice(consonants) + choice(vowels) + choice(consonants) + choice(vowels);
-            break;
-        case 4:
-            name = choice(vowels) + choice(consonants) + choice(consonants) + choice(vowels);
-            break;
-        default:
-            name = choice(vowels) + choice(consonants) + choice(consonants);
+    if (charBoxInputC.value.length > 0 & charBoxInputV.value.length > 0) {
+        var consonants = charBoxInputC.value.split(' ');
+        var vowels = charBoxInputV.value.split(' ');
+        var len = randomRange(2, 5);
+    } else {
+        var vowels = "aeiouy";
+        var consonants = 'bcdfghjklmnpqrstvwxyz';
+        var len = randomRange(3, 8);
+    }
+    var name = '';
+    var table = {
+        0: consonants,
+        1: vowels
+    };
+    for (var i=0; i<len; i++) {
+        name += choice(table[i % 2]);
     }
     return name;
-}
-
-function roll() {
-    return choice([1, 2])
 }
 
 // really bad
@@ -225,14 +236,15 @@ function complexName() {
     var middlefixes = [];
     var suffixes = [];
     var adjectives = [];
-    for(var x in data.prefix) prefixes.push(x);
-    for(var y in data.middlefix) middlefixes.push(y);
-    for(var z in data.suffix) suffixes.push(z);
-    for(var z in data.adjectives) adjectives.push(z);
+    for (var x in data.prefix) prefixes.push(x);
+    for (var y in data.middlefix) middlefixes.push(y);
+    for (var z in data.suffix) suffixes.push(z);
+    for (var z in data.adjectives) adjectives.push(z);
     var prefix = choice(prefixes);
     var middlefix = choice(middlefixes);
     var suffix = choice(suffixes);
-    if (roll() == 1) {
+    var roll = choice([0,1]);
+    if (roll == 1) {
         var adj = choice(adjectives);
     } else {
         var adj = '';
