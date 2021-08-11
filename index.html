@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style.css"> 
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
         <title>Name Generators</title>
     </head>
 
     <body class="container-fluid position-absolute top-50 start-50 translate-middle" style="background-color: rgb(18, 25, 37);">
 
-        <div class="nav nav-pills justify-content-center d-flex mb-3" id="genTabs">
-            <!-- GENERATOR SELECTION BUTTONS -->
-        </div>
+        <ul id="navbar" class="nav justify-content-center nav-pills">
+              <!-- GENERATOR SELECTION BUTTONS -->
+        </ul>
+        
 
         <h3 id="genTitle" class="d-flex text-center justify-content-center"></h3><br>
         <div id="charBox" class="input-group mb-3 start-50 translate-middle" style="width: 75%;">
@@ -30,13 +30,11 @@
         </div>
 
         <div class="text-center">
-            <br><button onclick="displaySaved()" class="btn btn-primary" style="width:10%;">-</button><button id="genBtn" onclick="generate()" class="btn btn-primary" style="width:70%;">Generate</button><button onclick="displaySaved()" class="btn btn-primary" style="width:10%;">⭐</button>
+            <br><button onclick="displaySaved()" class="btn btn-primary" style="width:5%;">-</button><button id="genBtn" onclick="generate()" class="btn btn-primary" style="width:25%;">Generate</button><button onclick="displaySaved()" class="btn btn-primary" style="width:5%;">⭐</button>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <script src="config.js"></script>
         <script src="generator.js"></script> 
-        <script>
-            
-        </script>
     </body>
 </html>

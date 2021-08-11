@@ -6,6 +6,7 @@ currently contains 5 simple name generators:
 - Fantasy Name F    (32,000 combos)   
 - Fantasy Name M    (1,200 combos)
 - Town Name         (10,100 combos)
+- Orc Name          ( combos)
 - Random Name       ( combos)
 
 try it at:  
