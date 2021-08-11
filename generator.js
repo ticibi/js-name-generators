@@ -1,7 +1,8 @@
 window.onload = function() {
     loadScripts();
     randomName();
-    addButtons();
+    createDropdowns();
+    //addButtons();
 };
 
 document.onload = function() {
@@ -23,6 +24,7 @@ const SUBGENS = [
 var savedNames = []
 var charBox = document.getElementById("charBox");
 charBox.style.visibility = "hidden";
+var navbar = document.getElementById("navbar");
 var charBoxInputC = document.getElementById("charBoxInputC");
 var charBoxInputV = document.getElementById("charBoxInputV");
 var genTabs = document.getElementById("genTabs");
@@ -45,6 +47,35 @@ function loadScripts() {
     }
 }
 
+function createDropdowns() {
+    for (var i=0; i < GENS.length; i++) {
+        let div = document.createElement("div");
+        div.className = "dropdown";
+        let btn = document.createElement("button");
+        btn.className = "btn btn-primary dropdown-toggle nav-link";
+        btn.innerText = GENS[i];
+        btn.setAttribute("type", "button");
+        btn.setAttribute("data-bs-toggle", "dropdown");
+        btn.setAttribute("aria-expanded", "false");
+        let ul = document.createElement("ul");
+        ul.className = "dropdown-menu dropdown-menu-dark";
+        ul.setAttribute("aria-labelledby", "dropdownMenuButton2");
+        for (var j=0; j < SUBGENS[i].length; j++) {
+            let li = document.createElement("li");
+            li.innerText = SUBGENS[i][j];
+            li.className = "dropdown-item";
+            li.id = GENS[i] + " " + SUBGENS[i][j];
+            li.addEventListener('click', function() {
+                toggleTab(this);
+            });
+            ul.appendChild(li);
+        }
+        div.appendChild(btn);
+        div.appendChild(ul);
+        navbar.append(div);
+    }
+}
+
 function addButtons() {
     for(var i=0; i < GENERATORS.length; i++){
         var li = document.createElement('div');
@@ -64,8 +95,9 @@ function addButtons() {
 
 function toggleTab(button) {
     genBtn.innerText = "Generate";
-    genTitle.innerText = button.innerText;
-    activeTab = button.innerText;
+    genTitle.innerText = button.id;
+    activeTab = button.id;
+    console.log(button.id);
     generate();
 }
 
@@ -99,49 +131,14 @@ function weightedChoice(weightedArray) {
     }
 }
 
-function formName(isWeighted, prefixes, middlefixes, suffixes) {
-    if (isWeighted == false) {
-        var prefix = choice(prefixes);
-        var middlefix = choice(middlefixes);
-        var suffix = choice(suffixes);
-        var name = prefix + middlefix + suffix;
-    } 
-    if (isWeighted == true) {
-        var prefix = weightedChoice(prefixes);
-        var middlefix = weightedChoice(middlefixes);
-        var suffix = weightedChoice(suffixes);
-        var name = prefix + middlefix + suffix;
-    }
-    return name;
-}
-
-function generateName(tabName) {
-    const DATATABLE = {
-        "Tech Names": TechNames,
-        "Fantasy Names F": FantasyNamesF,
-        "Fantasy Names M": FantasyNamesM,
-        "Town Names": TownNames,
-        "Orc Names": OrcNames
-    };
-    var data = DATATABLE[tabName];
-    var prefixes = [];
-    var middlefixes = [];
-    var suffixes = [];
-    for(var x in data.prefix) prefixes.push(x);
-    for(var y in data.middlefix) middlefixes.push(y);
-    for(var z in data.suffix) suffixes.push(z);
-    var name = formName(false, prefixes, middlefixes, suffixes);
-    return name;
-}
-
 function checkActiveTab(tabName) {
     switch (tabName) {
-        case "Random Names":
+        case "Random Names Random":
             var name = randomName();
             charBox.style.visibility = "visible";
             return name;
     
-        case "Orc Names":
+        case "Fantasy Names Orc":
             var name = complexName();
             charBox.style.visibility = "hidden";
             return name;
@@ -176,27 +173,39 @@ function generate() {
     }
 }
 
-function addSaved(button) {
-    if(!savedNames.includes(button.innerText)) {
-        savedNames.push(button.innerText);
-    } else if(savedNames.includes(button.innerText)) {
-        savedNames.splice(savedNames.indexOf(button.innerText));
+function formName(isWeighted, prefixes, middlefixes, suffixes) {
+    if (isWeighted == false) {
+        var prefix = choice(prefixes);
+        var middlefix = choice(middlefixes);
+        var suffix = choice(suffixes);
+        var name = prefix + middlefix + suffix;
+    } 
+    if (isWeighted == true) {
+        var prefix = weightedChoice(prefixes);
+        var middlefix = weightedChoice(middlefixes);
+        var suffix = weightedChoice(suffixes);
+        var name = prefix + middlefix + suffix;
     }
+    return name;
 }
 
-function displaySaved() {
-    remove();
-    genBtn.innerText = "Saved Names";
-    activeTab = "Saved Names";
-    genTitle.innerText = "Saved Names";
-    for (i = 0; i < savedNames.length; i++) {
-        let div = document.createElement("div");
-        div.innerHTML = savedNames[i];
-        div.id = "generatedName";
-        div.className = "fs-4 btn";
-        div.style = "text-transform: capitalize; color: gold; border: thin; background: none; padding: 0px;";
-        namesList.append(div);
-    }
+function generateName(tabName) {
+    const DATATABLE = {
+        "Company Names Tech": TechNames,
+        "Fantasy Names Feminine": FantasyNamesF,
+        "Fantasy Names Masculine": FantasyNamesM,
+        "Fantasy Names Town": TownNames,
+        "Fantasy Names Orc": OrcNames
+    };
+    var data = DATATABLE[tabName];
+    var prefixes = [];
+    var middlefixes = [];
+    var suffixes = [];
+    for(var x in data.prefix) prefixes.push(x);
+    for(var y in data.middlefix) middlefixes.push(y);
+    for(var z in data.suffix) suffixes.push(z);
+    var name = formName(false, prefixes, middlefixes, suffixes);
+    return name;
 }
 
 function remove() {
@@ -251,4 +260,27 @@ function complexName() {
     }
     var name = prefix + ' ' + adj + ' ' + middlefix + ' ' + suffix;
     return name;
+}
+
+function addSaved(button) {
+    if(!savedNames.includes(button.innerText)) {
+        savedNames.push(button.innerText);
+    } else if(savedNames.includes(button.innerText)) {
+        savedNames.splice(savedNames.indexOf(button.innerText));
+    }
+}
+
+function displaySaved() {
+    remove();
+    genBtn.innerText = "Saved Names";
+    activeTab = "Saved Names";
+    genTitle.innerText = "Saved Names";
+    for (i = 0; i < savedNames.length; i++) {
+        let div = document.createElement("div");
+        div.innerHTML = savedNames[i];
+        div.id = "generatedName";
+        div.className = "fs-4 btn";
+        div.style = "text-transform: capitalize; color: gold; border: thin; background: none; padding: 0px;";
+        namesList.append(div);
+    }
 }
