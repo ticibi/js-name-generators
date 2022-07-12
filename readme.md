@@ -1,6 +1,4 @@
-# Basic Name Generators
-
-Simple Name Generator 
+Basic Name Generator 
 
 - Techy Names
 - Fantasy Names     
