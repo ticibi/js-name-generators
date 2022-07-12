@@ -1,6 +1,6 @@
 # Basic Name Generators
 
-currently contains 5 simple name generators:  
+Simple Name Generator 
 
 - Techy Names
 - Fantasy Names     
