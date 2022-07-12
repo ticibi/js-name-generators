@@ -9,5 +9,5 @@ currently contains 5 simple name generators:
 - Orc Name          ( combos)
 - Random Name       ( combos)
 
-try it at:  
-https://ticibi.github.io/name-generators/
+  
+Hosted on Github Pages https://ticibi.github.io/name-generators/
