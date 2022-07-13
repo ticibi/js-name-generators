@@ -7,4 +7,4 @@ Basic Name Generator
 - Random Names   
 
   
-Hosted on Github Pages https://ticibi.github.io/name-generators/
+Hosted on Github Pages https://ticibi.github.io/js-name-generators/
